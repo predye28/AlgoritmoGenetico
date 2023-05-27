@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>genetic algorithm</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script async src="https://docs.opencv.org/master/opencv.js"  type="text/javascript"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>Genetic algorithm drawing</h1>
+  </div>
+  <div id="content">
+    <div id="left">
+      <h2 id="numberGenerations">Generations: 50</h1>
+      <div id="slider-generations">
+          <input type="range" class="sliderClass" id="sliderGENERATIONS" min="1" max="1000" oninput="updateNumber('Generations: ',this.value,'numberGenerations')">
+      </div>
+      <h2 id="numberIndividualsPoblation">Individuals in the population: 100</h1>
+      <div id="slider-individualsPoblation">
+          <input type="range" class="sliderClass" id="sliderINDIVIDUALS" min="1" max="1000" oninput="updateNumber('Individuals in the population: ',this.value,'numberIndividualsPoblation')">
+      </div>
+      <h2 id="numberIndividualsGeneration">% of individuals in each generation: 20%</h1>
+      <div id="slider-individualsGeneration">
+          <input type="range" class="sliderClass" id="sliderPercentageIndividualsGeneration" min="1" max="100" oninput="updateNumberPorcentaje('% of individuals in each generation: ',this.value,'numberIndividualsGeneration')">
+      </div>
+      <h2 id="numberIndividualsMutate">% of individuals who can mutate: 40%</h1>
+      <div id="slider-individualsMutate">
+          <input type="range" class="sliderClass" id="sliderIndividualMutate" min="1" max="100" oninput="updateNumberPorcentaje('% of individuals who can mutate: ',this.value,'numberIndividualsMutate')">
+      </div>
+      <h2 id="numberIndividualsMix">% of individuals who can mix: 40%</h1>
+      <div id="slider-individualsMix">
+          <input type="range" class="sliderClass" id="sliderIndividualMix" min="1" max="100" oninput="updateNumberPorcentaje('% of individuals who can mix: ',this.value,'numberIndividualsMix')">
+      </div>
+      <br>
+      <button class="buttonElegante"id="buttonApply" onclick="setear()">Apply changes</button>
+    </div>
+
+
+    <div id="center">
+
+      <h2>Insert drawing black and white:</h2>
+      <input type="file" id="fileInput" accept="image/*">
+      <div id="marco">
+        <canvas id="canvas"></canvas>
+        
+      </div>
+      <br>
+      <button class="buttonEleganteStart"id="buttonApply" onclick="geneticAlgorithm()">Start drawing</button>
+      <h2 id="procesoResultado"></h2>
+      
+      <h2 id="currentGeneration">Current generation: 0</h2>
+      <div id="marco">
+        <canvas id="canvasFinal"></canvas>
+      </div>
+      <h5 id="displayIndividual">Display 5% of each individual in the population every millisecond</h5>
+      <button class="buttonElegante"id="buttonChange" onclick="cambiarMostrar()">Change</button>
+      <h2 id="mensajeFinal"></h2>
+
+    </div>
+
+    <div id="right">
+      
+      <h2 id="totalTime">Total time: 0</h2>
+      <h2 id="timeGenerations">Average time for generations: 0</h2>
+      
+      <p id="status">OpenCV.js is loading...</p>
+    </div>
+  </div>
+</body>
+</html>
